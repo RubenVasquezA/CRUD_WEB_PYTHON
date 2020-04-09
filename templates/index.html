@@ -1,0 +1,93 @@
+<!--Autor: Lic.Rubén Dario Vásque Alvarez-->
+<html>
+<head>
+	<title>Trabajadores</title>
+	<!---Poner iconos -->
+	<!-- <link href="https://fonts.googleapis.com/css?family=Heebo" rel="stylesheet"> -->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+	<!--Fuente-->
+	<link rel="stylesheet" href="../static/css/styles.css">
+	<link rel="stylesheet" href="../static/css/jquery-ui.css"> 
+	<link href="../static/css/jquery.dataTables.min.css" rel="stylesheet">
+	
+</head>
+<body onload="mostrar_persona()">
+
+	
+				<div id="note">
+
+
+				<div class="note-mita-izq">
+					<div class="note-mita-title">Formulario</div>
+					<a href="#" class="Boton largo" id="NUEVO" onclick="nuevo()">Nueva trabajador</a>
+					<form class="formulario">
+		  				<input type="text" style="display:none" id="ID_IND">
+		  				<label for="nombres">Nombres</label>
+		  				<input type="text" id="nombres" name="nombres">
+		 				<label for="apellidoP">Apellido Paterno: </label>
+		 			    <input type="text" id="apellidoP" name="apellidoP">
+		  				<label for="apellidoM">Apellido Materno: </label>
+		  				<input type="text" id="apellidoM" name="apellidoM">
+		  				<label for="direccion">Dirección:</label>
+		  				<input type="text" id="direccion" name="direccion">
+		  				<label>Cargo:</label>
+		 			    <select id="cargo" name="cargo">
+		  				<option selected disabled></option>
+  		  				{% for c in ncargo %}
+  		  				<option value="{{ c.id_cargo }}">{{ c.cargo }}</option>
+      					{% endfor %}
+		  				</select>
+		  				<br>
+		  				<a class="Boton corto" id="GUARDAR" onclick="guardar_datos()">Guardar</a>
+		  				<a class="Boton corto" id="ACTUALIZAR" onclick="actualizar_datos()">Actualizar</a>
+		  			</form>
+		  
+
+
+				</div>
+
+
+					<div class="note-mita-dere">
+						<div class="note-mita-title">Tabla</div>
+						<div class="note-mita-izq-pane">
+							<table id="example" class="display" cellspacing="0" width="100%">
+				          <thead>
+				              <tr>
+				          
+				                  <th>Nombres</th>
+				                  <th>Apellidos</th>
+				                  <th>Direccion</th>
+				                   <th>Cargo</th>
+				                   <th>Accion</th>      
+				              </tr>
+				          </thead>
+				          <tfoot>
+				              <tr>
+				                
+				                  <th>Nombres</th>
+				                  <th>Apellidos</th>
+				                  <th>Direccion</th>
+				                   <th>Cargo</th>
+				                   <th>Accion</th>
+				              </tr>
+				          </tfoot>
+				      		</table>
+						</div>
+					</div>
+			</div>
+	
+
+
+
+
+
+	<script src="../static/js/jquery.js"></script>
+	<script src="../static/js/jquery-ui.js"></script>
+	<script src="../static/js/interface.js"></script>
+	<!-- <script src="../static/js/jquery.validate.min.js"></script> -->
+	<!-- <script src="../static/js/validacion_datos.js"></script> -->
+	<script src="../static/js/jquery.dataTables.min.js"></script>
+	<!-- <script src="../static/js/main.js"></script> -->
+</body>
+
+</html>
